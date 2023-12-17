@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 django = "==4.2.8"
+django-tailwind = "*"
 
 [requires]
 python_version = "3.9"
