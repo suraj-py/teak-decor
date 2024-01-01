@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     #apps
     "accounts.apps.AccountsConfig",
+    "products.apps.ProductsConfig",
 
     #3rd party
     "tailwind",
