@@ -11,31 +11,49 @@
         {% tailwind_css %}
     </head>
     <body>
-        <nav class="sticky w-64 h-[100dvh] bg-[#ffefef] p-4">
-            <div class="flex gap-3 items-center">
-                <i class='bx bx-menu-alt-left bx-md '></i>
-                <h2 class="text-[#fea692]">
-                    Teak Decor
-                </h2>
+        <!-- page layout div  -->
+        <div class="flex flex-row">
+            <!-- section 1 -->
+            <!-- sidebar -->
+            <aside class="sticky top-0 left-0 w-64 h-[100dvh] bg-[#ffefef] p-4">
+                <!-- logo section  -->
+                <div class="flex gap-3 items-center">
+                    <i class='bx bx-menu-alt-left bx-md '></i>
+                    <h2 class="text-[#fea692]">
+                        Teak Decor
+                    </h2>
+                </div>
+                <!-- sidebar nav items  -->
+                <div class="mt-4 flex flex-col gap-6">
+                    <div class="nav-item-btn">
+                        <i class='bx bxs-home-heart bx-md'></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="nav-item-btn">
+                        <i class='bx bxs-store-alt bx-md'></i>
+                        <span>Products</span>
+                    </div>
+                    <div class="nav-item-btn">
+                        <i class='bx bxs-cart-add bx-md'></i>
+                        <span>Cart</span>
+                    </div>
+                    <div class="nav-item-btn">
+                        <i class='bx bxs-user-detail bx-md'></i>
+                        <span>Accounts</span>
+                    </div>
+                </div>
+            </aside>
+            <!-- section 2 -->
+            <div class="w-full">
+                <!-- navbar  -->
+                <nav class="sticky top-0 w-full h-16 p-4 bg-[#ffefef]">
+                    nav
+                </nav>
+                <!-- main section -->
+                <main class="h-[100vh]">
+                    main
+                </main>
             </div>
-            <div class="mt-4 flex flex-col gap-6">
-                <div class="nav-item-btn">
-                    <i class='bx bxs-home-heart bx-md'></i>
-                    <span>Home</span>
-                </div>
-                <div class="nav-item-btn">
-                    <i class='bx bxs-store-alt bx-md'></i>
-                    <span>Products</span>
-                </div>
-                <div class="nav-item-btn">
-                    <i class='bx bxs-cart-add bx-md'></i>
-                    <span>Cart</span>
-                </div>
-                <div class="nav-item-btn">
-                    <i class='bx bxs-user-detail bx-md'></i>
-                    <span>Accounts</span>
-                </div>
-            </div>
-        </nav>
+        </div>
     </body>
 </html>
