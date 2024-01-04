@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     #apps
-    "accounts.apps.AccountsConfig",
+    # "users.apps.UsersConfig",
     "products.apps.ProductsConfig",
 
     #3rd party
