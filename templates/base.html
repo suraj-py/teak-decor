@@ -25,33 +25,43 @@
                 </div>
                 <!-- sidebar nav items  -->
                 <div class="mt-4 flex flex-col gap-6">
+                    <a>
                     <div class="nav-item-btn">
                         <i class='bx bxs-home-heart bx-md'></i>
                         <span>Home</span>
                     </div>
+                    </a>
+                    <a href="{% url 'products_page' %}">
                     <div class="nav-item-btn">
                         <i class='bx bxs-store-alt bx-md'></i>
                         <span>Products</span>
                     </div>
+                    </a>
+                    <a>
                     <div class="nav-item-btn">
                         <i class='bx bxs-cart-add bx-md'></i>
                         <span>Cart</span>
                     </div>
+                    </a>
+                    <a>
                     <div class="nav-item-btn">
                         <i class='bx bxs-user-detail bx-md'></i>
                         <span>Accounts</span>
                     </div>
+                    </a>
                 </div>
             </aside>
             <!-- section 2 -->
-            <div class="w-full">
+            <div class="w-full flex flex-col gap-4">
                 <!-- navbar  -->
                 <nav class="sticky top-0 w-full h-16 p-4 bg-[#ffefef]">
                     nav
                 </nav>
                 <!-- main section -->
-                <main class="h-[100vh]">
-                    main
+                <main class="h-[100vh] px-8">
+                    {% block content %}
+
+                    {% endblock content %}
                 </main>
             </div>
         </div>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="flex flex-wrap gap-4 justify-center">
+        {% for product  in products %}
+        <!-- Product card  -->
+        <div class="w-56 h-72 p-2 rounded-xl bg-red-100">
+            <!-- Product image section  -->
+            <div class="w-52 h-48 rounded-lg">
+                <!-- Product image  -->
+                <img
+                src="{{ product.image.url }}"
+                alt="rosegold image"
+                class="object-fit w-52 h-48 rounded-lg"
+                >
+                </div>
+                <!-- Product title  -->
+                <h2 class="text-lg">{{ product.title }}</h2>
+                <!-- Card botton section  -->
+                <div class="px-2 flex flex-row justify-between items-center">
+                    <!-- Product Price  -->
+                    <span class="text-2xl font-bold">₹{{ product.price }}</span>
+                    <!-- Add to cart button  -->
+                    <button class="border border-orange-300 rounded-lg text-orange-300">
+                        <i class='bx bx-plus bx-tada-hover bx-lg'></i>
+                    </button>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
