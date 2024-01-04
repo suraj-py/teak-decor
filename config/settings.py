@@ -39,14 +39,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    #apps
-    # "users.apps.UsersConfig",
+    #local apps
+    "users.apps.UsersConfig",
     "products.apps.ProductsConfig",
 
     #3rd party
     "tailwind",
     "theme",
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 TAILWIND_APP_NAME = 'theme'
 
