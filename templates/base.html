@@ -55,10 +55,22 @@
             <div class="w-full flex flex-col gap-4">
                 <!-- navbar  -->
                 <nav class="sticky top-0 w-full h-16 p-4 bg-[#ffefef]">
-                    nav
+                    {% if user.is_authenticated %}
+                        <h2>Hello {{user.email}}</h2>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <h2>You're not logged in</h2>
+                        <a href="{% url 'login' %}">Log in</a>
+                        <a href="{% url 'signup' %}">Sign up</a>
+                    {% endif %}
                 </nav>
                 <!-- main section -->
                 <main class="h-[100vh] px-8">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div>{{message}}</div>
+                        {% endfor %}
+                    {% endif %}
                     {% block content %}
 
                     {% endblock content %}

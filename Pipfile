@@ -9,6 +9,7 @@ verify_ssl = true
 django = "==4.2.8"
 django-tailwind = "*"
 pillow = "*"
+crispy-tailwind = "*"
 
 [requires]
 python_version = "3.9"

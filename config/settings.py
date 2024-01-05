@@ -46,11 +46,17 @@ INSTALLED_APPS = [
     #3rd party
     "tailwind",
     "theme",
+    "crispy_forms",
+    "crispy_tailwind",
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
 TAILWIND_APP_NAME = 'theme'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -143,3 +149,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
