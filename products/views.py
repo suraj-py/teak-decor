@@ -11,7 +11,8 @@ def products_list(request):
 
 def cart_list(request):
     cart_items = CartItem.objects.all()
-    context = {"cart_items":cart_items}
+    cart_count = cart_items.count()
+    context = {"cart_items":cart_items, "cart_count":cart_count}
     return render(request, "products.html", context=context)
 
 def add_to_cart(request, item_id):
