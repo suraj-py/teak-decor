@@ -42,7 +42,11 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'tbrown': '#C56E33',
+            }
+        },
     },
     plugins: [
         /**
