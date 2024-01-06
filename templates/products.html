@@ -21,9 +21,11 @@
                     <!-- Product Price  -->
                     <span class="text-2xl font-bold">₹{{ product.price }}</span>
                     <!-- Add to cart button  -->
+                    <a href="{% url 'add_to_cart' product.id %}">
                     <button class="border border-orange-300 rounded-lg text-orange-300">
                         <i class='bx bx-plus bx-tada-hover bx-lg'></i>
                     </button>
+                    </a>
                 </div>
         </div>
         {% endfor %}
