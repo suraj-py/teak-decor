@@ -3,5 +3,5 @@ const sideBar = document.querySelector('.sidemenu')
 
 menuBtn.addEventListener('click', () => {
     console.log('working')
-    sideBar.classList.toggle('hide')
+    sideBar.classList.toggle('open')
 })

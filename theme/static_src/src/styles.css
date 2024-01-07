@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .nav-item-btn {
-        @apply py-2 px-4 flex items-center gap-4 bg-white text-[#f59989];
-    }
-
     .hide {
-        @apply opacity-0;
+        @apply -translate-x-96;
     }
 }

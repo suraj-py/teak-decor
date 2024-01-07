@@ -15,27 +15,28 @@
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="w-full h-20 border border-b-2 px-24 flex flex-row justify-between items-center">
+        <nav class="w-full h-20 border border-b-2 px-8 sm:px-12 md:px-24 
+        flex flex-row justify-between items-center">
            <!-- Side menu button  -->
-           <button class="hidden">
+           <button class="block md:hidden menu-btn">
            <i class='bx bx-menu-alt-left bx-md text-tbrown'></i>
            </button>
             <!-- Logo  -->
             <div>
                 <a href="">
-                <img class="w-28 h-12"
+                <img class="w-20 md:w-28 h-auto"
                 src="{% static 'images/logo.png'%}" alt="Logo Image">
                 </a>
             </div>
             <!-- Nav Items  -->
             <div class="flex flex-row gap-6 text-tbrown">
-                <a href="">Home</a>
-                <a href="">Showroom</a>
-
+                <a href="" class="hidden md:block">Home</a>
+                <a href="" class="hidden md:block">Showroom</a>
+                <a href="" class="hidden md:block">About</a>
                 <!-- accounts dropdown button  -->
-                <button class="relative accounts">
+                <button class="relative accounts hidden md:block">
                     <i class='bx bx-user bx-sm'></i>
-                    <div class="border border-black w-20 h-24 absolute dropdown">
+                    <div class="border border-black w-20 h-24 absolute dropdown hidden">
                         <a href="{%url 'login'%}">login</a>
                     </div>
                 </button>
@@ -46,5 +47,20 @@
                 </button>
             </div>
         </nav>
+        <main class="relative">
+        <div class="flex flex-col absolute border items-center border-black w-56 h-[100dvh] 
+        py-16 gap-20 transition-all sidemenu hide">
+            <a href="">Home</a>
+            <a href="">Showroom</a>
+            <a href="">About</a>
+             <button class="relative accounts">
+                    <i class='bx bx-user bx-sm'></i>
+                    <div class="border border-black w-20 h-24 absolute dropdown hidden">
+                        <a href="{%url 'login'%}">login</a>
+                    </div>
+            </button>
+        </div>
+        <h2 class="nav-item-btn">hello</h2>
+        </main>
     </body>
 </html>
