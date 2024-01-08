@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1 class="text-center">Your Cart</h1>
+    <div>
+        {% for item in cart_items %}
+        <div class="flex flex-row border border-black justify-around items-center relative">
+            <!-- section 1 -->
+            <div class="sm:flex sm:flex-row sm:justify-between sm:items-center gap-4 md:gap-8 lg:gap-16">
+                <img src="{{ item.item.image.url}}" alt="cart-image"
+                    class="w-20 h-20">
+                <p>{{item.item.title}}</p>
+            </div>
+            <!-- section 2 -->
+            <div class="sm:flex sm:flex-row gap-4 md:gap-8 lg:gap-16">
+                <div>
+                    <a href="" class="p-1 mr-1 border-2 border-gray-400">+</a>{{item.quantity}}<a href="" class="p-1 ml-1 border-2 border-gray-400">-</a>
+                </div>
+                <p>x{{item.item.price}}</p>
+            </div>
+            <a href="" class="text-red-500">del</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

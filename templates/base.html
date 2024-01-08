@@ -42,10 +42,10 @@
                     </div>
                 </button>
                 <!-- cart button  -->
-                <button>
+                <a href="{% url 'cart'%}">
                     <i class='bx bx-cart-alt bx-sm'></i>
                     <span class="bg-tbrown text-amber-950 rounded-[50%] p-2">1</span>
-                </button>
+                </a>
             </div>
         </nav>
         <!-- sidemenu  -->
@@ -64,7 +64,7 @@
         </header>
 
         <!-- Main section  -->
-        <main class="px-8 sm:px-12 md:px-24 mt-8">
+        <main class="px-6 sm:px-12 md:px-24 mt-8">
             {% block content%}
 
             {% endblock content%}
