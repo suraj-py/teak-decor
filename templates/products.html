@@ -4,26 +4,27 @@
     <div class="flex flex-wrap gap-4 justify-center">
         {% for product  in products %}
         <!-- Product card  -->
-        <div class="w-56 h-72 p-2 rounded-xl bg-red-100">
+        <div class="w-64 h-[21.5rem] p-2 border-2 border-gray-300 hover:border-gray-500 cursor-pointer transition-all">
             <!-- Product image section  -->
-            <div class="w-52 h-48 rounded-lg">
+            <div class="w-52 h-48 rounded-lg m-auto">
                 <!-- Product image  -->
                 <img
-                src="{{ product.image.url }}"
+                src="{% static 'images/chair3.png'%}"
                 alt="rosegold image"
-                class="object-fit w-52 h-48 rounded-lg"
+                class="object-fit w-60 h-52 bg-white"
                 >
                 </div>
+
                 <!-- Product title  -->
-                <h2 class="text-lg">{{ product.title }}</h2>
+                <h2 class="text-lg mt-4 px-2">{{ product.title }}</h2>
                 <!-- Card botton section  -->
-                <div class="px-2 flex flex-row justify-between items-center">
+                <div class="mt-2 px-2 flex flex-col gap-1">
                     <!-- Product Price  -->
-                    <span class="text-2xl font-bold">₹{{ product.price }}</span>
+                    <span class="text-2xl font-bold">${{ product.price }}</span>
                     <!-- Add to cart button  -->
                     <a href="{% url 'add_to_cart' product.id %}">
-                    <button class="border border-orange-300 rounded-lg text-orange-300">
-                        <i class='bx bx-plus bx-tada-hover bx-lg'></i>
+                    <button class="w-full h-10 text-center bg-black text-white">
+                        Add to cart
                     </button>
                     </a>
                 </div>
