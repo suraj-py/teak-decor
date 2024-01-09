@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+    <div class="flex flex-row flex-wrap justify-center gap-4">
+        {% for name in category_names %}
+            <a href="{% url 'category' name.id %}"
+                class="border-2 px-2 py-1 hover:border-gray-500 cursor-pointer"
+            >{{name}}</a>
+        {% endfor %}
+    </div>
+
+    {% if not category_names %}
+            <a href="{% url 'products' %}"
+                class="px-3 py-2 bg-black hover:bg-slate-500 text-white"
+            ><i class='bx bx-arrow-back'></i>Back</a>
+    {% endif %}
+
     <div class="mt-4 flex flex-wrap gap-4 justify-center">
         {% for product  in products %}
         <!-- Product card  -->

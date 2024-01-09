@@ -1,18 +1,19 @@
 from django.shortcuts import render, redirect
-from .models import Item, Cart, CartItem
+from .models import Item, Cart, CartItem, Category
 
 def home(request):
     return render(request, 'base.html')
 
 def products_list(request):
     products = Item.objects.all()
-    context = {"products": products}
+    category_names = Category.objects.all()
+    context = {"products": products, "category_names":category_names}
     return render(request, "products.html", context)
 
-# def products_by_category(request, category):
-#     products = Item.objects.filter(category=category)
-#     context = {"products":products, "category":category}
-#     return render(request, "products.html", context)
+def products_by_category(request, category):
+    products = Item.objects.filter(category=category)
+    context = {"products":products, "category":category}
+    return render(request, "products.html", context)
 
 def cart_list(request):
     cart_items = CartItem.objects.all()
