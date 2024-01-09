@@ -40,3 +40,7 @@ class CartItem(models.Model):
 
     def __str__(self):
         return self.item.title
+
+    @property
+    def item_total(self):
+        return self.quantity * self.item.price

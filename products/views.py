@@ -21,3 +21,22 @@ def add_to_cart(request, item_id):
     cart_item, created = CartItem.objects.get_or_create(cart=cart, item=item)
     cart_item.save()
     return redirect('products')
+
+def increase_quantity(request, cart_id):
+    cart_item = CartItem.objects.get(pk=cart_id)
+    cart_item.quantity += 1
+    cart_item.save()
+    return redirect('cart')
+
+def decrease_quantity(request, cart_id):
+    cart_item = CartItem.objects.get(pk=cart_id)
+    cart_item.quantity -= 1
+    cart_item.save()
+    if cart_item.quantity == 0:
+        remove_cart_item(request, cart_id)
+    return redirect('cart')
+
+def remove_cart_item(request, cart_id):
+    cart_item = CartItem.objects.get(pk=cart_id)
+    cart_item.delete()
+    return redirect('cart')

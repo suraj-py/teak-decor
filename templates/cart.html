@@ -13,20 +13,21 @@
                 <p>{{item.item.title}}</p>
             </div>
             <!-- section 2 -->
-            <div class="sm:w-52 h-20 sm:flex sm:flex-row justify-between items-center gap-4 md:gap-8 lg:gap-16">
+            <div class="sm:w-56 h-20 sm:flex sm:flex-row justify-between items-center gap-4 md:gap-8 lg:gap-16">
                 <div>
-                    <a href="" class="p-1 mr-1 border-2 border-gray-400"><i class='bx bx-plus'></i></a>{{item.quantity}}
-                    <a href="" class="p-1 ml-1 border-2 border-gray-400"><i class='bx bx-minus'></i></a>
+                    <a href="{% url 'increase_quantity' item.id %}" class="p-1 mr-1 border-2 border-gray-400"><i class='bx bx-plus'></i></a>{{item.quantity}}
+                    <a href="{% url 'decrease_quantity' item.id %}" class="p-1 ml-1 border-2 border-gray-400"><i class='bx bx-minus'></i></a>
                 </div>
-                <p>${{item.item.price}}</p>
+                <p>${{item.item_total}}</p>
             </div>
-            <a href="" class="text-red-500">
+            <a href="{% url 'remove_cart_item' item.id %}" class="text-red-500">
                 <i class='bx bx-trash bx-sm'></i>
             </a>
         </div>
         {% endfor %}
     </div>
-    <div>
+
+
     <div class="w-full p-2 border-2 bg-gray-200 mt-4">
         <h2 class="text-center">Order Summary</h2>
         <br>
