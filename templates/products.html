@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div class="flex flex-wrap gap-4 justify-center">
+    <div class="mt-4 flex flex-wrap gap-4 justify-center">
         {% for product  in products %}
         <!-- Product card  -->
         <div class="w-64 h-[21.5rem] p-2 border-2 border-gray-300 hover:border-gray-500 cursor-pointer transition-all">
@@ -9,7 +9,7 @@
             <div class="w-52 h-48 rounded-lg m-auto">
                 <!-- Product image  -->
                 <img
-                src="{% static 'images/chair3.png'%}"
+                src="{{ product.image.url }}"
                 alt="rosegold image"
                 class="object-fit w-60 h-52 bg-white"
                 >

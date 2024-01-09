@@ -2,14 +2,11 @@ import uuid
 from django.db import models
 from users.models import CustomUser
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
 
-CATEGORY_CHOICES = (
-    ('SO', 'Sofas'),
-    ('BE','Beds'),
-    ('CH','Chairs'),
-    ('TB','Tables'),
-    ('CU','Cupboards'),
-)
+    def __str__(self):
+        return self.name
 
 class Item(models.Model):
     id = models.UUIDField(
@@ -20,7 +17,7 @@ class Item(models.Model):
     title = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None)
     image = models.ImageField(upload_to='items/')
 
     def __str__(self):
