@@ -33,20 +33,20 @@
         <br>
         <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
             <p>Total Items</p>
-            <p>4</p>
+            <p>{{cart_count}}</p>
         </div>
         <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
             <p>Subtotal</p>
-            <p>$245</p>
+            <p>${{sub_total}}</p>
         </div>
         <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
             <p>Shipping</p>
-            <p>FREE</p>
+            <p>{{shipping}}</p>
         </div>
         <hr class="h-[2px] mb-4 bg-gray-500">
         <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
             <p>Total</p>
-            <p>$245</p>
+            <p>${{total}}</p>
         </div>
     </div>
     <button class="mt-2 w-full h-10 bg-green-500 text-center">check out</button>

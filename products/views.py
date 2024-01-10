@@ -18,7 +18,23 @@ def products_by_category(request, category):
 def cart_list(request):
     cart_items = CartItem.objects.all()
     cart_count = cart_items.count()
-    context = {"cart_items":cart_items, "cart_count":cart_count}
+    sub_total = sum(item.item.price * item.quantity for item in cart_items)
+    if sub_total > 300:
+        shipping = 'FREE'
+    else:
+        shipping = 20
+
+    if shipping == 'FREE':
+        total = sub_total
+    else:
+        total = sub_total + shipping
+    context = {
+            "cart_items":cart_items,
+            "cart_count":cart_count,
+            "sub_total":sub_total,
+            "shipping" : shipping,
+            "total": total,
+            }
     return render(request, "cart.html", context=context)
 
 def add_to_cart(request, item_id):
