@@ -1,5 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .models import Item, Cart, CartItem, Category
+
+from django.views.generic import View
+import stripe
+from django.conf import settings
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def home(request):
     return render(request, 'base.html')
@@ -62,3 +68,43 @@ def remove_cart_item(request, cart_id):
     cart_item = CartItem.objects.get(pk=cart_id)
     cart_item.delete()
     return redirect('cart')
+
+
+class CreateCheckoutSessionView(View):
+    def post(self, *args, **kwargs):
+        host = self.request.get_host()
+
+        cart_items = CartItem.objects.all()
+        total = sum(item.item.price * item.quantity for item in cart_items)
+
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price_data':{
+                        'currency':'usd',
+                        'unit_amount': int(total) * 100,
+                        'product_data':{
+                            'name':'Tshirt',
+                        }
+                    },
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url = "http://{}{}".format(host,reverse('payment-success')),
+            cancel_url = "http://{}{}".format(host,reverse('payment-cancel')),
+        )
+
+        return redirect(checkout_session.url, code=303)
+
+def paymentSuccess(request):
+    context = {
+        'payment_status':'success',
+    }
+    return render(request, 'confirmation.html', context)
+
+def paymentCancel(request):
+    context = {
+        'payment_status':'failed',
+    }
+    return render(request, 'confirmation.html', context)

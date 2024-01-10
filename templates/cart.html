@@ -49,5 +49,11 @@
             <p>${{total}}</p>
         </div>
     </div>
-    <button class="mt-2 w-full h-10 bg-green-500 text-center">check out</button>
+    {# <button class="mt-2 w-full h-10 bg-green-500 text-center">check out</button> #}
+    <form action="{% url 'create-checkout-session' %}" method="POST">
+        {% csrf_token %}
+        <button
+        class="mt-2 w-full h-10 bg-green-500 text-center"
+        type="submit" id="checkout-button">Checkout</button>
+    </form>
 {% endblock content %}
