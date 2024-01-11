@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     #local apps
     "users.apps.UsersConfig",
     "products.apps.ProductsConfig",
+    "orders.apps.OrdersConfig",
 
     #3rd party
     "tailwind",

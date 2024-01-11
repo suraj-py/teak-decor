@@ -28,6 +28,7 @@ urlpatterns = [
 
     # Local apps
     path('', include('products.urls')),
+    path('orders/', include('orders.urls')),
     path('accounts/', include('users.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
