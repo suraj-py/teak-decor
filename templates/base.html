@@ -16,7 +16,7 @@
     <body class="bg-neutral-color">
         <header class="relative">
         <!-- Navbar -->
-        <nav class="w-full h-20 border border-b-2 px-6 sm:px-12 md:px-24 
+        <nav class="w-full h-28 border border-b-2 px-6 sm:px-12 md:px-24
         flex flex-row justify-between items-center">
            <!-- Side menu button  -->
            <button class="block md:hidden menu-btn">
@@ -31,21 +31,32 @@
             </div>
             <!-- Nav Items  -->
             <div class="flex flex-row gap-6 text-black-color">
-                <a href="{% url 'home' %}" class="hidden md:block">Home</a>
-                <a href="{% url 'products'%}" class="hidden md:block">Showroom</a>
-                <a href="" class="hidden md:block">About</a>
+                <a class="hover:text-secondary-color-1" href="{% url 'home' %}" class="hidden md:block">Home</a>
+                <a class="hover:text-secondary-color-1" href="{% url 'products'%}" class="hidden md:block">Showroom</a>
+                <a class="hover:text-secondary-color-1" href="" class="hidden md:block">About</a>
+
                 <!-- accounts dropdown button  -->
-                <button class="relative accounts hidden md:block">
+                <button class="relative md:block accBtn hover:text-secondary-color-1">
                     <i class='bx bx-user bx-sm'></i>
-                    <div class="border border-black-color w-20 h-24 absolute dropdown hidden">
-                        <a href="{%url 'login'%}">login</a>
+                    <div class="border bg-secondary-color-1 mt-2 w-32 h-28 text-neutral-color
+                    font-bold text-center py-4 rounded shadow shadow-secondary-color-1 absolute dropdown show">
+                        {% if user.is_authenticated %}
+                            <p class="hover:text-secondary-color-2 mt-1 py-2">Hello {{user}}</p>
+                            <a class="hover:text-secondary-color-2 py-2 block" href="{%url 'logout'%}">Logout</a>
+                        {% else %}
+                            <a class="hover:text-secondary-color-2 mt-1 py-2 block" href="{%url 'login'%}">Log In</a>
+                            <a class="hover:text-secondary-color-2 py-2 block" href="{%url 'signup'%}">Sign Up</a>
+                        {% endif %}
                     </div>
                 </button>
+
                 <!-- cart button  -->
-                <a href="{% url 'cart'%}">
+                <div>
+                <a class="hover:text-secondary-color-1" href="{% url 'cart'%}">
                     <i class='bx bx-cart-alt bx-sm'></i>
-                    <span class="bg-secondary-color text-amber-950 rounded-[50%] p-2">{{cart_count}}</span>
+                    <span class="bg-secondary-color-1 text-neutral-color font-bold rounded-[50%] p-2">{{cart_count}}</span>
                 </a>
+                </div>
             </div>
         </nav>
         <!-- sidemenu  -->

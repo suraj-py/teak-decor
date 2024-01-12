@@ -6,4 +6,7 @@
     .hide {
         @apply -translate-x-96;
     }
+        .show {
+            @apply hidden;
+        }
 }
