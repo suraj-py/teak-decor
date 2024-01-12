@@ -23,5 +23,5 @@ class Item(models.Model):
     image = models.ImageField(upload_to='items/')
 
     def __str__(self):
-        return self.title
+        return f"{self.title} -> {self.category.name}"
 
