@@ -13,3 +13,5 @@ accountsBtn.addEventListener('click', () => {
     console.log('working')
     dropdownMenu.classList.toggle('show')
 })
+
+

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
 from django.conf import settings
+from django.contrib import messages
 
 from .models import Cart, CartItem
 from products.models import Item
@@ -35,13 +36,21 @@ def cart_list(request):
             }
     return render(request, "cart.html", context=context)
 
+# Check if the item is already in the cart
+def item_already_in_cart(item_id):
+    return CartItem.objects.filter(item_id=item_id).exists()
+
 # add to cart view
 @login_required()
 def add_to_cart(request, item_id):
     item = Item.objects.get(pk=item_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
-    cart_item, created = CartItem.objects.get_or_create(cart=cart, item=item)
-    cart_item.save()
+    if item_already_in_cart(item_id):
+        messages.warning(request, 'Item is already in the cart.')
+    else:
+        cart_item, created = CartItem.objects.get_or_create(cart=cart, item=item)
+        cart_item.save()
+        messages.success(request, "Item added in the cart.")
     return redirect('products')
 
 # increase quantity by one
@@ -67,6 +76,7 @@ def decrease_quantity(request, cart_id):
 def remove_cart_item(request, cart_id):
     cart_item = CartItem.objects.get(pk=cart_id)
     cart_item.delete()
+    messages.success(request, "Item removed from the cart.")
     return redirect('cart')
 
 

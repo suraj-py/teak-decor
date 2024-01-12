@@ -50,6 +50,7 @@ module.exports = {
                 'primary-color-3': '#adb5bd',
                 'secondary-color-1': '#D36135',
                 'secondary-color-2': '#af3800',
+                'secondary-color-3': '#dda15e',
                 'black-color':'#353535',
             }
         },

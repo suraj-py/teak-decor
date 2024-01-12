@@ -76,6 +76,31 @@
 
         <!-- Main section  -->
         <main class="px-6 sm:px-12 md:px-24 mt-8">
+
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %}
+                    class="{{ message.tags }} text-center py-2 bg-secondary-color-3 text-neutral-color mb-4 sticky"
+                    {% endif %}>
+                    {{ message }}
+                  </li>
+                {% endfor %}
+              </ul>
+
+              <script>
+                  // Automatically hide messages after a certain duration
+                  document.addEventListener("DOMContentLoaded", function() {
+                    setTimeout(function() {
+                      var messages = document.querySelector('.messages');
+                      if (messages) {
+                        messages.style.display = 'none';
+                      }
+                    }, 3000);
+                  });
+                </script>
+            {% endif %}
+
             {% block content%}
 
             {% endblock content%}
