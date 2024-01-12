@@ -13,7 +13,7 @@
         <script defer src="{% static 'js/main.js'%}"></script>
         {% tailwind_css %}
     </head>
-    <body>
+    <body class="bg-neutral-color">
         <header class="relative">
         <!-- Navbar -->
         <nav class="w-full h-20 border border-b-2 px-6 sm:px-12 md:px-24 
@@ -30,21 +30,21 @@
                 </a>
             </div>
             <!-- Nav Items  -->
-            <div class="flex flex-row gap-6 text-black">
+            <div class="flex flex-row gap-6 text-black-color">
                 <a href="{% url 'home' %}" class="hidden md:block">Home</a>
                 <a href="{% url 'products'%}" class="hidden md:block">Showroom</a>
                 <a href="" class="hidden md:block">About</a>
                 <!-- accounts dropdown button  -->
                 <button class="relative accounts hidden md:block">
                     <i class='bx bx-user bx-sm'></i>
-                    <div class="border border-black w-20 h-24 absolute dropdown hidden">
+                    <div class="border border-black-color w-20 h-24 absolute dropdown hidden">
                         <a href="{%url 'login'%}">login</a>
                     </div>
                 </button>
                 <!-- cart button  -->
                 <a href="{% url 'cart'%}">
                     <i class='bx bx-cart-alt bx-sm'></i>
-                    <span class="bg-tbrown text-amber-950 rounded-[50%] p-2">{{cart_count}}</span>
+                    <span class="bg-secondary-color text-amber-950 rounded-[50%] p-2">{{cart_count}}</span>
                 </a>
             </div>
         </nav>

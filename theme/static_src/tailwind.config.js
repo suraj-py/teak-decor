@@ -44,7 +44,13 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'tbrown': '#C56E33',
+                'neutral-color': '#FFFFFF',
+                'primary-color-1': '#6c757d',
+                'primary-color-2': '#dee2e6',
+                'primary-color-3': '#adb5bd',
+                'secondary-color-1': '#D36135',
+                'secondary-color-2': '#af3800',
+                'black-color':'#353535',
             }
         },
     },
