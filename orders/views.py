@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import View
+from django.conf import settings
+
 from .models import Cart, CartItem
 from products.models import Item
 
-from django.views.generic import View
 import stripe
-from django.conf import settings
 
 # stripe secret key
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,6 +36,7 @@ def cart_list(request):
     return render(request, "cart.html", context=context)
 
 # add to cart view
+@login_required()
 def add_to_cart(request, item_id):
     item = Item.objects.get(pk=item_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
@@ -41,6 +45,7 @@ def add_to_cart(request, item_id):
     return redirect('products')
 
 # increase quantity by one
+@login_required()
 def increase_quantity(request, cart_id):
     cart_item = CartItem.objects.get(pk=cart_id)
     cart_item.quantity += 1
@@ -48,6 +53,7 @@ def increase_quantity(request, cart_id):
     return redirect('cart')
 
 # decrease quantity by one
+@login_required()
 def decrease_quantity(request, cart_id):
     cart_item = CartItem.objects.get(pk=cart_id)
     cart_item.quantity -= 1
@@ -57,6 +63,7 @@ def decrease_quantity(request, cart_id):
     return redirect('cart')
 
 # remove single item from cart
+@login_required()
 def remove_cart_item(request, cart_id):
     cart_item = CartItem.objects.get(pk=cart_id)
     cart_item.delete()
@@ -66,7 +73,8 @@ def remove_cart_item(request, cart_id):
 # ------------------Checkout Views-------------------------------
 
 # Checkout view
-class CreateCheckoutSessionView(View):
+
+class CreateCheckoutSessionView(LoginRequiredMixin, View):
     def post(self, *args, **kwargs):
         host = self.request.get_host()
 
