@@ -79,16 +79,23 @@ def remove_cart_item(request, cart_id):
     messages.success(request, "Item removed from the cart.")
     return redirect('cart')
 
+@login_required()
+def clear_cart(request):
+    cart_items = CartItem.objects.all()
+    cart_items.delete()
+    return redirect('cart')
+
+
 
 # ------------------Checkout Views-------------------------------
 
 # Checkout view
-
 class CreateCheckoutSessionView(LoginRequiredMixin, View):
     def post(self, *args, **kwargs):
         host = self.request.get_host()
 
         cart_items = CartItem.objects.all()
+        count = cart_items.count()
         total = sum(item.item.price * item.quantity for item in cart_items)
 
         checkout_session = stripe.checkout.Session.create(
@@ -98,10 +105,10 @@ class CreateCheckoutSessionView(LoginRequiredMixin, View):
                         'currency':'usd',
                         'unit_amount': int(total) * 100,
                         'product_data':{
-                            'name':'Tshirt',
+                            'name': '#order45654',
                         }
                     },
-                    'quantity': 1,
+                    'quantity': count,
                 },
             ],
             mode='payment',
@@ -116,6 +123,8 @@ def paymentSuccess(request):
     context = {
         'payment_status':'success',
     }
+    print('successful payment: clearing cart')
+    clear_cart(request)
     return render(request, 'confirmation.html', context)
 
 # view for handling failed payement
