@@ -57,7 +57,8 @@
         <h2 class="text-center text-2xl">Trending Products</h2>
         <div class="mt-8 flex flex-row flex-wrap justify-around gap-4">
             {% for product in products %}
-                 <div class="w-64 h-[22rem] p-2 border-2 border-primary-color-2 hover:border-primary-color-3 cursor-pointer transition-all">
+            <a href="{% url 'detail_page' product.id %}">
+            <div class="w-64 h-[22rem] p-2 border-2 border-primary-color-2 hover:border-primary-color-3 cursor-pointer transition-all">
             <!-- Product image section  -->
             <div class="w-52 h-52 rounded m-auto">
                 <!-- Product image  -->
@@ -79,6 +80,7 @@
                     </a>
                 </div>
             </div>
+            </a>
             {% endfor %}
         </div>
     </section>

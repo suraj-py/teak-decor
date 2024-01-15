@@ -18,6 +18,7 @@
     <div class="mt-4 flex flex-wrap gap-4 justify-center">
         {% for product  in products %}
         <!-- Product card  -->
+        <a href="{% url 'detail_page' product.id %}">
         <div class="w-64 h-[22rem] p-2 border-2 border-primary-color-2 hover:border-primary-color-3 cursor-pointer transition-all">
             <!-- Product image section  -->
             <div class="w-52 h-52 rounded-lg m-auto">
@@ -41,6 +42,7 @@
                     </a>
                 </div>
         </div>
+        </a>
         {% endfor %}
     </div>
 {% endblock content %}

@@ -20,3 +20,8 @@ def products_by_category(request, category):
     context = {"products":products, "category":category}
     return render(request, "products.html", context)
 
+def detail_page(request, product_id):
+    product = Item.objects.filter(pk=product_id)
+    context = {'product':product}
+    return render(request, 'detail_page.html', context)
+

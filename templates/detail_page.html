@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% for p in product %}
+
+<h1>{{p.title}}</h1>
+<p>{{p.description}}</p>
+{% endfor %}
+
+{% endblock content %}
