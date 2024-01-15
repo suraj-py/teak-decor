@@ -1,4 +1,138 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-    <h1>Buy the best furniture for your home</h1>
+    <!-- Hero section  -->
+    <section class="flex flex-row flex-wrap justify-start md:justify-between items-center">
+
+        <div class="">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl">
+                Make Your <span class="text-secondary-color-1">Interior</span> <br>
+                Unique & Modern
+            </h1>
+            <p class="mt-4 text-lg md:text-xl tracking-wide">
+                Turn your room with teak decor into a lot more <br>
+                minimalist and modern.
+            </p>
+            <button class="mt-12 w-40 h-12 bg-secondary-color-1 text-neutral-color
+             font-bold capitalize rounded-full">Shop Now</button>
+        </div>
+
+        <div class=" max-md:w-full max-md:flex justify-center -z-50">
+            <img src="{% static 'images/home.png'%}"
+                class="w-[18rem] h-[18rem]
+                       sm:w-[24rem] sm:h-[24rem]
+                       md:w-[28rem] md:h-[28rem] drop-shadow-lg"
+            alt="">
+        </div>
+    </section>
+
+    <section class="mt-16 flex flex-col gap-4 lg:flex-row">
+        <div class="bg-[#ffe5ec] w-full h-56 lg:h-72 flex flex-col
+                sm:flex-row justify-between sm:justify-around items-center -z-50">
+            <div class="text-center">
+            <h2 class="font-bold tracking-widest text-xl">Tables</h2>
+            <a>Shop</a>
+            </div>
+            <div>
+                <img src="{% static 'images/h2.png'%}"
+                    class="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72"
+                alt="">
+            </div>
+        </div>
+        <div class="bg-[#caf0f8] w-full h-56 lg:h-72 flex flex-col
+                sm:flex-row justify-center sm:justify-around items-center -z-50">
+            <div class="text-center">
+            <h2 class="font-bold tracking-widest text-xl">Lamps</h2>
+            <a href="">Shop</a>
+            </div>
+            <div>
+                <img src="{% static 'images/h3.png'%}"
+                    class="w-40 h-40 md:w-52 md:h-52"
+                alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-8">
+        <h2 class="text-center text-2xl">Trending Products</h2>
+        <div class="mt-8 flex flex-row flex-wrap justify-around gap-4">
+            {% for product in products %}
+                 <div class="w-64 h-[22rem] p-2 border-2 border-primary-color-2 hover:border-primary-color-3 cursor-pointer transition-all">
+            <!-- Product image section  -->
+            <div class="w-52 h-52 rounded m-auto">
+                <!-- Product image  -->
+                <img
+                src="{{ product.image.url }}"
+                alt="{{product.title}}-image"
+                class="object-fit w-60 h-52"
+                >
+                </div>
+                <!-- Product title  -->
+                <h2 class="text-lg mt-4 px-2 text-primary-color-1">{{product.title}}</h2>
+                <!-- Card botton section  -->
+                <div class="mt-8 px-2 flex flex-row justify-between items-center">
+                    <!-- Product Price  -->
+                    <span class="text-2xl font-bold text-black-color">${{product.price}}</span>
+                    <!-- Add to cart button  -->
+                    <a href="{% url 'add_to_cart' product.id %}" class="text-secondary-color-1">
+                        <i class='bx bxs-plus-circle bx-md '></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="mt-8">
+        <h2 class="text-lg sm:text-2xl md:text-4xl font-bold">Products</h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 grid-flow-row gap-4 ">
+
+            <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white ">
+                <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/tables.jpeg"
+                    class="object-cover h-52 w-full hover:scale-150 hover:blur-sm transition-all"
+                    alt="Tables">
+                    <h2 class="absolute top-[50%] left-8">Tables</h2>
+            </div>
+
+            <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white">
+                <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/chairs.jpeg"
+                    class="object-cover h-52 w-full hover:scale-150 hover:blur-sm transition-all"
+                    alt="Chairs">
+                    <h2 class="absolute top-[50%] left-8">Chairs</h2>
+            </div>
+
+            <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white">
+                 <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/sofas.jpeg"
+                    class="object-cover h-52 w-full hover:scale-150 hover:blur-sm transition-all"
+                    alt="Sofas">
+                    <h2 class="absolute top-[50%] left-8">Sofas</h2>
+            </div>
+
+            <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white">
+                 <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/lamps.jpeg"
+                    class="object-cover h-52 w-full hover:scale-150 hover:blur-sm transition-all"
+                    alt="Lamps">
+                    <h2 class="absolute top-[50%] left-8">Lamps</h2>
+            </div>
+
+            <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white">
+                 <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/beds.jpeg"
+                    class="object-cover h-52 w-full hover:scale-150 hover:blur-sm transition-all"
+                    alt="Beds">
+                    <h2 class="absolute top-[50%] left-8">Beds</h2>
+            </div>
+
+            <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white">
+                 <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/cupboards.jpeg"
+                    class="object-cover h-52 w-full hover:scale-150 hover:blur-sm transition-all"
+                    alt="Cupboards">
+                    <h2 class="absolute top-[50%] left-8">Cupboards</h2>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
 {% endblock content %}

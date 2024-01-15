@@ -52,6 +52,12 @@ module.exports = {
                 'secondary-color-2': '#af3800',
                 'secondary-color-3': '#dda15e',
                 'black-color':'#353535',
+            },
+            backgroundImage: {
+                'hero-image-one': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home1.jpeg')",
+                'hero-image-two': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home2.jpeg')",
+                'hero-image-three': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home3.jpeg')",
+                'hero-image-four': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home4.jpeg')",
             }
         },
     },

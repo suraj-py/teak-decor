@@ -3,7 +3,9 @@ from .models import Item, Category
 
 # Home Page View
 def home(request):
-    return render(request, 'home.html')
+    products = Item.objects.all()[4:8]
+    context = {'products':products}
+    return render(request, 'home.html', context)
 
 # View for listing all products
 def products_list(request):

@@ -9,4 +9,7 @@
         .show {
             @apply hidden;
         }
+        .image-div {
+            @apply w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-3xl text-white;
+        }
 }
