@@ -4,8 +4,24 @@
 {% block content %}
 {% for p in product %}
 
-<h1>{{p.title}}</h1>
-<p>{{p.description}}</p>
+    <div class="flex flex-row flex-wrap justify-center md:justify-start gap-2 ">
+        <!-- image div -->
+        <div class="lg:w-[600px] lg:h-[600] ">
+            <img src="{{ p.image.url }}" alt="{{p.title}}-image"
+                class=""
+            >
+        </div>
+        <div class="w-full lg:w-[450px]">
+            <div class="mt-4 p-4">
+                <h1 class="text-3xl md:text-5xl">{{p.title}}</h1>
+                <p class="mt-8">{{p.description}}</p>
+                <p class="mt-12 text-2xl md:text-4xl text-black-color">${{p.price}}</p>
+            </div>
+            <a href="">
+            <button class="bg-secondary-color-1 w-full h-16 text-neutral-color font-bold rounded-full hover:bg-secondary-color-2">Add to cart</button>
+            </a>
+        </div>
+    </div>
 {% endfor %}
 
 {% endblock content %}
