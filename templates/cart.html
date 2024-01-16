@@ -2,11 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="text-center">Your Cart</h1>
-    <a href="{% url 'clear_cart' %}">clear</a>
+    <h1 class="mb-4 text-center text-2xl md:text-4xl lg:text-6xl font-merri text-secondary-color-1">Your Cart</h1>
+    <!-- <a href="{% url 'clear_cart' %}">clear</a> -->
+   {% if cart_count == 0 %}
+        <div class="flex flex-col justify-start items-center gap-4 h-[100vh]">
+            <div class="w-52 h-52 flex flex-col justify-center items-center p-4">
+                <img src="{% static 'images/empty_cart.svg'%}" alt="">
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-5xl font-merri 
+            text-secondary-color-3 text-center">No Items Added In Cart.</h2>
+            <a href="{% url 'products'%}">
+                <button class="w-52 h-15 text-neutral-color bg-secondary-color-1 rounded-full p-2">Keep Browsing</button>
+            </a>
+        </div>
+    {% else %}
     <div class="flex flex-col gap-4">
         {% for item in cart_items %}
-        <div class="flex flex-row border-2 justify-around items-center py-1">
+        <div class="flex flex-row border-2 font-roboto justify-around items-center py-1">
             <!-- section 1 -->
             <div class="sm:w-52 sm:flex sm:flex-row sm:justify-start sm:items-center gap-4 md:gap-8 lg:gap-16">
                 <img src="{{ item.item.image.url}}" alt="cart-image"
@@ -28,33 +40,33 @@
         {% endfor %}
     </div>
 
-
-    <div class="w-full p-2 border-2 bg-gray-200 mt-4">
-        <h2 class="text-center">Order Summary</h2>
+    {# order summary section  #}
+    <div class="w-full p-2 border-2 bg-neutral-color  mt-4">
+        <h2 class="text-center text-3xl font-merri text-secondary-color-2">Order Summary</h2>
         <br>
-        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
+        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72 font-roboto text-secondary-color-1">
             <p>Total Items</p>
             <p>{{cart_count}}</p>
         </div>
-        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
+        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72 font-roboto text-secondary-color-1">
             <p>Subtotal</p>
             <p>${{sub_total}}</p>
         </div>
-        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
+        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72 font-roboto text-secondary-color-1">
             <p>Shipping</p>
             <p>{{shipping}}</p>
         </div>
         <hr class="h-[2px] mb-4 bg-gray-500">
-        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72">
+        <div class="flex flex-row justify-between mb-4 px-16 lg:px-72 font-roboto text-secondary-color-1">
             <p>Total</p>
             <p>${{total}}</p>
         </div>
     </div>
-    {# <button class="mt-2 w-full h-10 bg-green-500 text-center">check out</button> #}
     <form action="{% url 'create-checkout-session' %}" method="POST">
         {% csrf_token %}
         <button
-        class="mt-2 w-full h-10 bg-green-500 text-center"
+        class="mt-2 w-full h-10 bg-green-500 text-center font-merri text-neutral-color"
         type="submit" id="checkout-button">Checkout</button>
     </form>
+    {% endif %}
 {% endblock content %}
