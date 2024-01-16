@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load tailwind_filters %}
 {% block content %}
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-start items-center h-[100vh]">
         <h1 class="text-3xl md:text-5xl font-bold tracking-wide text-secondary-color-1">Welcome Back</h1>
         <form method="post" class="p-4">
             {% csrf_token %}

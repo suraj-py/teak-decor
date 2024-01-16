@@ -17,7 +17,7 @@
                 <p class="mt-8 font-roboto">{{p.description}}</p>
                 <p class="mt-12 font-roboto text-2xl md:text-4xl text-black-color">${{p.price}}</p>
             </div>
-            <a href="">
+            <a href="{% url 'add_to_cart' p.id %}">
             <button class="bg-secondary-color-1 w-full h-16 font-roboto text-neutral-color font-bold rounded-full hover:bg-secondary-color-2">Add to cart</button>
             </a>
         </div>
