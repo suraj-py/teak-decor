@@ -55,12 +55,18 @@ module.exports = {
                 'success-color': '#7cb518',
                 'cancel-color': '#da2c38',
             },
+
             backgroundImage: {
                 'hero-image-one': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home1.jpeg')",
                 'hero-image-two': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home2.jpeg')",
                 'hero-image-three': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home3.jpeg')",
                 'hero-image-four': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home4.jpeg')",
-            }
+            },
+
+            fontFamily: {
+                merri: ['Merriweather', 'serif'],
+                roboto: ['Roboto', 'sans-serif'],
+            },
         },
     },
     plugins: [

@@ -5,16 +5,16 @@
     <section class="flex flex-row flex-wrap justify-start md:justify-between items-center">
 
         <div class="">
-            <h1 class="text-4xl sm:text-6xl md:text-7xl">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-merri text-black-color">
                 Make Your <span class="text-secondary-color-1">Interior</span> <br>
                 Unique & Modern
             </h1>
-            <p class="mt-4 text-lg md:text-xl tracking-wide">
+            <p class="mt-4 text-lg md:text-xl tracking-wide font-roboto">
                 Turn your room with teak decor into a lot more <br>
                 minimalist and modern.
             </p>
             <button class="mt-12 w-40 h-12 bg-secondary-color-1 text-neutral-color
-             font-bold capitalize rounded-full">Shop Now</button>
+             font-bold capitalize rounded-full font-roboto">Shop Now</button>
         </div>
 
         <div class=" max-md:w-full max-md:flex justify-center -z-50">
@@ -26,7 +26,7 @@
         </div>
     </section>
 
-    <section class="mt-16 flex flex-col gap-4 lg:flex-row">
+    <section class="mt-16 flex flex-col gap-4 lg:flex-row font-roboto">
         <div class="bg-[#ffe5ec] w-full h-56 lg:h-72 flex flex-col
                 sm:flex-row justify-between sm:justify-around items-center -z-50">
             <div class="text-center">
@@ -54,8 +54,8 @@
     </section>
 
     <section class="mt-8">
-        <h2 class="text-center text-2xl">Trending Products</h2>
-        <div class="mt-8 flex flex-row flex-wrap justify-around gap-4">
+        <h2 class="text-center text-2xl font-merri text-black-color">Trending Products</h2>
+        <div class="mt-8 flex flex-row flex-wrap justify-around gap-4 font-roboto">
             {% for product in products %}
             <a href="{% url 'detail_page' product.id %}">
             <div class="w-64 h-[22rem] p-2 border-2 border-primary-color-2 hover:border-primary-color-3 cursor-pointer transition-all">
@@ -85,10 +85,10 @@
         </div>
     </section>
 
-    <section class="mt-8">
-        <h2 class="text-lg sm:text-2xl md:text-4xl font-bold">Products</h2>
+    <section class="mt-12">
+        <h2 class="text-lg sm:text-2xl md:text-4xl font-bold font-merri text-black-color">Products</h2>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 grid-flow-row gap-4 ">
+        <div class="grid grid-cols-2 sm:grid-cols-3 grid-flow-row gap-4 font-merri ">
 
             <div class="w-full h-32 sm:h-52 lg:72 overflow-hidden relative font-bold text-lg md:text-3xl text-white ">
                 <img src="https://d1kzjq66iwuksu.cloudfront.net/home_page/tables.jpeg"

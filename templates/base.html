@@ -9,12 +9,16 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.png'%}" />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script defer src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
         <script defer src="{% static 'js/main.js'%}"></script>
         {% tailwind_css %}
     </head>
     <body class="bg-neutral-color">
-        <header class="relative">
+        <header class="relative font-roboto">
         <!-- Navbar -->
         <nav class="w-full h-28 border border-b-2 px-6 sm:px-12 md:px-24
         flex flex-row justify-between items-center bg-neutral-color fixed top-0">
@@ -126,8 +130,8 @@
 
             <!-- section 2 -->
             <div>
-                <h2 class="mb-4 font-bold leading-3  text-2xl">Menu</h2>
-                <div class="flex flex-col gap-2 ">
+                <h2 class="mb-4 leading-3  text-2xl font-merri">Menu</h2>
+                <div class="flex flex-col gap-2 font-roboto">
                     <a href="" class="hover:underline transition-all">Home</a>
                     <a href="" class="hover:underline transition-all">Products</a>
                     <a href="" class="hover:underline transition-all">About</a>
@@ -138,8 +142,8 @@
 
             <!-- section 3 -->
             <div>
-                <h2 class="mb-4 font-bold leading-3 text-2xl">Category</h2>
-                <div class="flex flex-col gap-2 ">
+                <h2 class="mb-4 leading-3 text-2xl font-merri">Category</h2>
+                <div class="flex flex-col gap-2 font-roboto">
                     <a href="" class="hover:underline transition-all">Chairs</a>
                     <a href="" class="hover:underline transition-all">Tables</a>
                     <a href="" class="hover:underline transition-all">Beds</a>
@@ -151,13 +155,13 @@
 
             <!-- section 4 -->
             <div>
-                <h2 class="mb-4 font-bold leading-3 text-2xl">Contact us</h2>
-                <p class="">+02 3455436435</p>
-                <p class="">teakdecor@examplemail.com</p>
+                <h2 class="mb-4 leading-3 text-2xl font-merri">Contact us</h2>
+                <p class="font-roboto">+02 3455436435</p>
+                <p class="font-roboto">teakdecor@examplemail.com</p>
             </div>
             </div>
             <hr class="my-4">
-            <h3 class="text-center text-lg">Design & Developed with love <i class='bx bxs-heart ' style='color:#bf0603'  ></i> 
+            <h3 class="text-center font-merri text-lg">Design & Developed with love <i class='bx bxs-heart ' style='color:#bf0603'  ></i> 
                 by <a href="https://github.com/suraj-py" class="underline">Suraj Mhatre</a></h3>
         </footer>
     </body>

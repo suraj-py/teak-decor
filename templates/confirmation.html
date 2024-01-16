@@ -8,12 +8,13 @@
                         <img src="{% static 'images/successful_payment.svg'%}" alt="">
                     </div>
             </div>
-            <h1 class="text-3xl sm:5xl lg:8xl mt-4 uppercase text-success-color font-bold tracking-wider">Thank You !</h1>
-            <p class="text-black-color text-xl mt-2 text-center">Payment Done Successfully</p>
+            <h1 class="text-3xl sm:5xl lg:8xl mt-4 font-merri 
+            uppercase text-success-color font-bold tracking-wider">Thank You !</h1>
+            <p class="text-black-color text-xl mt-2 text-center font-roboto">Payment Done Successfully</p>
 
             <a href="{% url 'home' %}">
                 <button
-                    class="w-56 h-14 mt-12 p-2 text-bold text-neutral-color bg-success-color"
+                    class="w-56 h-14 mt-12 p-2 font-roboto text-bold text-neutral-color bg-success-color"
                 >Take me back to home page</button>
             </a>
         </div>
@@ -24,14 +25,15 @@
                         <img src="{% static 'images/unsuccessful_payment.svg'%}" alt="">
                     </div>
             </div>
-            <h1 class="text-3xl sm:5xl lg:8xl mt-4 uppercase text-cancel-color font-bold tracking-wider">Sorry</h1>
-            <p class="text-black-color text-xl mt-2 text-center">
+            <h1 class="text-3xl sm:5xl lg:8xl mt-4 uppercase font-merri
+             text-cancel-color font-bold tracking-wider">Sorry</h1>
+            <p class="text-black-color text-xl mt-2 text-center font-roboto">
                 Something went wrong. Please Try Again.
             </p>
 
             <a href="{% url 'cart' %}">
                 <button
-                    class="w-56 h-14 mt-12 p-2 text-bold text-neutral-color bg-cancel-color"
+                    class="w-56 h-14 mt-12 p-2 font-roboto text-bold text-neutral-color bg-cancel-color"
                 >Back to cart</button>
             </a>
         </div>
