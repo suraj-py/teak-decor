@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% load tailwind_filters %}
 {% block content %}
-    <div>Login Page</div>
-    <form method="post">
-        {% csrf_token %}
-        {{ form | crispy }}
-        <button type="submit">Log In</button>
-    </form>
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-wide text-secondary-color-1">Welcome Back</h1>
+        <form method="post" class="p-4">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" 
+            class="mt-8 w-full h-10 rounded-full bg-secondary-color-1 text-neutral-color"
+            >Log In</button>
+        </form>
+    </div>
 {% endblock content %}

@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load tailwind_filters %}
 {% block content %}
-    <h1>Sign Up Page</h1>
+    <h1 class="text-3xl md:text-5xl font-bold tracking-wide text-secondary-color-1 mb-4">Create Account</h1>
     <form method="post">
         {% csrf_token %}
         {{ form | crispy }}
-        <button type="submit">Sign Up</button>
+        <button type="submit"
+        class="mt-8 w-full h-10 rounded-full bg-secondary-color-1 text-neutral-color"
+        >Sign Up</button>
     </form>
 {% endblock content %}
