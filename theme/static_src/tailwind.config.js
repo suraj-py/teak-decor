@@ -51,7 +51,9 @@ module.exports = {
                 'secondary-color-1': '#D36135',
                 'secondary-color-2': '#af3800',
                 'secondary-color-3': '#dda15e',
-                'black-color':'#353535',
+                'black-color': '#353535',
+                'success-color': '#7cb518',
+                'cancel-color': '#da2c38',
             },
             backgroundImage: {
                 'hero-image-one': "url('https://d1kzjq66iwuksu.cloudfront.net/home_page/home1.jpeg')",
