@@ -12,7 +12,7 @@ Utilized ‬‭AWS S3‬‭ for ‬‭storing‬‭ and ‬‭serving‬‭ medi
 
 
 ## Demo
-![](https://d1kzjq66iwuksu.cloudfront.net/demo/teak_decor_demo.gif)
+![](demo/teak_decor_demo.gif)
 
 ## Run Locally
 
