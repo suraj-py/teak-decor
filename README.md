@@ -9,6 +9,8 @@ Developed a ‬‭shopping cart system‬‭ that allows users to add, update, a
 Integrated the ‬‭Stripe API‬‭ as the ‬‭payment gateway ‬‭for secure and seamless transactions.
 
 Utilized ‬‭AWS S3‬‭ for ‬‭storing‬‭ and ‬‭serving‬‭ media files,‬‭such as product images and Set up‬‭ AWS Cloudflare‬‭as a CDN to ‬‭optimize ‬‭website ‬‭performance and ensure faster content delivery.‬
+
+
 ## Demo
 ![](https://d1kzjq66iwuksu.cloudfront.net/demo/teak_decor_demo.gif)
 
